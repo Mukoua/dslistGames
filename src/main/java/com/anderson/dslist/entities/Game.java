@@ -13,40 +13,34 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private Double score;
+
     @Column(name = "game_year")
     private Integer year;
     private String genre;
     private String platforms;
-    private Double score;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
-    private String lonDescription;
+
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
 
     public Game() {
     }
 
-    public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl, String shortDescription, String lonDescription) {
+    public Game(Long id, String title, Double score, Integer year, String genre, String platforms, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
+        this.score = score;
         this.year = year;
         this.genre = genre;
         this.platforms = platforms;
-        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
-        this.lonDescription = lonDescription;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
-        return Objects.equals(getId(), game.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(getId());
+        this.longDescription = longDescription;
     }
 
     public Long getId() {
@@ -63,6 +57,14 @@ public class Game {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public Integer getYear() {
@@ -89,14 +91,6 @@ public class Game {
         this.platforms = platforms;
     }
 
-    public Double getScore() {
-        return score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
     public String getImgUrl() {
         return imgUrl;
     }
@@ -113,13 +107,24 @@ public class Game {
         this.shortDescription = shortDescription;
     }
 
-    public String getLonDescription() {
-        return lonDescription;
+    public String getLongDescription() {
+        return longDescription;
     }
 
     public void setLonDescription(String lonDescription) {
-        this.lonDescription = lonDescription;
+        this.longDescription = longDescription;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return Objects.equals(getId(), game.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
+    }
 
 }
