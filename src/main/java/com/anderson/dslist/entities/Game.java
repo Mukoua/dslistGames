@@ -67,11 +67,11 @@ public class Game {
         this.score = score;
     }
 
-    public Integer getYear() {
+    public Integer getGameYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setGameYear(Integer year) {
         this.year = year;
     }
 
@@ -126,5 +126,6 @@ public class Game {
     public int hashCode() {
         return Objects.hashCode(getId());
     }
+
 
 }
